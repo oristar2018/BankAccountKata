@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Redirect</title>
+</head>
+<body>
+<h2>Please wait while we conduct your operation ! You will now be redirected </h2>
+<a id="redirectIf" href="/">click here if you are not redirect within 3 seconds</a>
+
+<script>
+	var body = document.querySelector('body');
+	body.style.minHeight = "100vh";
+	body.style.display = "flex";
+	body.style.flexDirection = "column";
+	body.style.alignItems = "center";
+	body.style.justifyContent = "center";
+	body.style.fontSize = "14px";
+
+	var redirectIf = document.getElementById('redirectIf');
+	redirectIf.style.opacity = "0";
+
+	setTimeout( function() { 
+			var redirectIf = document.getElementById('redirectIf');
+			redirectIf.style.opacity = "1";
+			window.location.replace('/')
+
+		}, 2500)
+
+
+	
+
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bank Account</title>
+</head>
+<body>
+<h1>Bank Account Beta</h1>
+<form>
+<input type="text" name="name">
+<input type="text" name="firstName">
+<input type="number" name="userId">
+<input type="email" name="email">
+<input type="text" name="password">
+<input type="text" name="adress">
+<input type="submit" formaction="http://localhost:8886/users/signup" formmethod="POST">
+</form>
+
+<form>
+	<label for="deposit">deposit</label>
+	<input type="number" name="deposit">
+	<label for="withdraw">withdraw</label>
+	<input type="number" name="withdraw">
+	<input type="submit" name="submit" formmethod="POST" formaction="http://localhost:8886/users/balance">
+</form>
+<script>
+var body = document.querySelector('body');
+body.style.minHeight = "100vh";
+body.style.minWidth = "100vh";
+body.style.display = "flex";
+body.style.flexDirection = "columnn";
+body.style.justifyContent = "center";
+
+var form = document.querySelector('form');
+form.style.display = "flex";
+form.style.flexDirection = "column";
+form.style.alignItems = "center";
+form.style.justifyContent = "center"
+</script>
+</body>
+</html>
