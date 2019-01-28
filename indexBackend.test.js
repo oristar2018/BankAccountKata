@@ -25,21 +25,22 @@ it("shouldTestAccountCreation", () => {
 });
 
 
-it('shouldTestDeposits', () => {
-
+it("shouldTestDeposits", () => {
 	const fakeDeposit = 100;
-	const mockBalance = 0;
-
-	expect(fakeDeposit + mockBalance).toEqual("newBalance")
+	const Balance = new modifyBalance(100);
+	Balance.makeDeposit(100);
+	expect(fakeDeposit).toBeGreaterThan(0);
+	expect(Balance.balance).toBeGreaterThanOrEqual(0);
 
 });
 
-
-it('shouldTestWithdrawals', () => {
-
+it("shouldTestWithdrawals", () => {
 	const fakeWithdrawal = 100;
-	const mockBalance = 200;
+	const Balance = new modifyBalance(100);
+	Balance.makeWithdrawal(100);
+	
 
-	expect(mockBalance - fakeWithdrawal).toEqual("newBalance");
 
+	expect(fakeWithdrawal).toBeGreaterThan(0);
+	expect(Balance.balance).toBeGreaterThanOrEqual(0);
 });
