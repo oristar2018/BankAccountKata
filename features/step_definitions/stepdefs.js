@@ -6,7 +6,7 @@ const createAccount = require("../../createAccountClass");
 const modifyBalance = require("../../modifyBalance");
 const Account = require("../../models/accountModel");
 
-const dbPath = "mongodb://127.0.0.1:27018/docker-node-mongo2";
+const dbPath = "mongodb://127.0.0.1:27018/docker-node-mongo4";
 mongoose.connect(dbPath, { useNewUrlParser: true });
 
 Given("a new account", function() {
