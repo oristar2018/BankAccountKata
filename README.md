@@ -1,5 +1,6 @@
 # Bank account kata
-Think of your personal bank account experience When in doubt, go for the simplest solution
+
+Version 1.00, ready for download.
 
 ## Requirements
 Deposit and Withdrawal
@@ -69,3 +70,5 @@ for the front-end tests, navigate to the client folder in the root directory of 
 To tear down the application, type:
 
 ``docker-compose down``
+
+Each acccount will be credited with 500$ on creation.
