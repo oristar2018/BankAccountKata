@@ -2,7 +2,7 @@
   "name": "bankfront",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8886",
+  "proxy": "http://localhost:8887",
   "dependencies": {
     "@material-ui/core": "^3.9.0",
     "cucumber": "^5.1.0",

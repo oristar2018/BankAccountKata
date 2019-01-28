@@ -102,7 +102,7 @@ class AccountPage extends Component {
 		return (
 			<div id="logInContainer">
 				<h2>Create your account</h2>
-				<h3>Or use testaccount userId: 1234 password: 1234</h3>
+				{/*<h3>Or use testaccount userId: 1234 password: 1234</h3>*/}
 				<form>
 					<label className="createAccountLabels" htmlFor="name">
 						name *

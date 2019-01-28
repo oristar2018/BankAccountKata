@@ -52,7 +52,7 @@ For some systems, you might need to install Docker-compose as a separate entity
 
 Then, clone the repository on your system and install the program by typing:
 
-``docker-compose up``
+``npm run bankInstall``
 
 Then navigate to the program interface at [http://localhost:8887](http://localhost:8887) or type from the CLI:
 

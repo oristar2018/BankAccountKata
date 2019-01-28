@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "start http://localhost:8887 && nodemon index.js", 
+    "start": "nodemon index.js", 
     "test": "npx jest indexBackend.test.js && npx cucumber-js",
-    "dockerInstall": "docker-compose up"
+    "bankInstall": "cd client && npm install && npm run build && cd .. && npm install && docker-compose up"
   },
   "author": "bhd",
   "license": "ISC",
