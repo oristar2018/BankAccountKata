@@ -8,17 +8,14 @@ import './index.css';*/
 //import App from './App';
 //import * as serviceWorker from './serviceWorker';
 //import { createAccount } from "./createAccountClass";
-const createAccount = require('./createAccountTest');
+const createAccount = require("./createAccountTest");
 //const store = createStore(combineReducers);
-
-
 
 /*it("renders without crashing", () => {
 	const div = document.createElement("div");
 	ReactDOM.render(<Provider store={store}><Connected /></Provider>, div);
 	ReactDOM.unmountComponentAtNode(div);
 });*/
-
 
 it("testsAccountInfo", async () => {
 	var res;
@@ -41,5 +38,3 @@ it("testsAccountInfo", async () => {
 	expect(res.hasOwnProperty("adress")).toBe(true);
 	expect(res.hasOwnProperty("balance")).toBe(true);
 });
-
-

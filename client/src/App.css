@@ -1,49 +1,59 @@
-.App, body, #main {
+.App,
+body,
+#main {
   min-height: 100vh;
   min-width: 100vw;
   text-align: center;
 }
 
 @font-face {
-    font-family: "Lloyds Jack Light";
-    src: url("https://www.lloydsbank.com/assets/fonts/LloydsBankJackLight/lloyds_bank_jack-lightWEB.woff") format('woff');
+  font-family: "Lloyds Jack Light";
+  src: url("https://www.lloydsbank.com/assets/fonts/LloydsBankJackLight/lloyds_bank_jack-lightWEB.woff")
+    format("woff");
 }
 
 @font-face {
-    font-family: "Lloyds Jack Light";
-    src: url("https://www.lloydsbank.com/assets/fonts/LloydsBankJackMedium/lloyds_bank_jack-mediumWEB.woff") format('woff');
-    font-weight: bold;
+  font-family: "Lloyds Jack Light";
+  src: url("https://www.lloydsbank.com/assets/fonts/LloydsBankJackMedium/lloyds_bank_jack-mediumWEB.woff")
+    format("woff");
+  font-weight: bold;
 }
 
 * {
-    font-family: "Lloyds Jack Light";
+  font-family: "Lloyds Jack Light";
 }
 
-h1, h2, h3 {
-  font-family: "Lloyds Jack Medium" !important
+h1,
+h2,
+h3 {
+  font-family: "Lloyds Jack Medium" !important;
 }
 
-button, button > span, input, input > span, .NavLink, #appBar {
-
+button,
+button > span,
+input,
+input > span,
+.NavLink,
+#appBar {
   font-size: 16px;
   text-transform: none !important;
   text-decoration: none !important;
-
 }
 
 /*  
   color: white !important;
 }*/
 
-#createAccountSubmit, #createAccountSubmit2 {
+#createAccountSubmit,
+#createAccountSubmit2 {
   background-color: #026147 !important;
   color: white;
   margin-top: 10px !important;
-  margin-bottom: 20px !important
+  margin-bottom: 20px !important;
 }
 
 label {
-  padding-top: 10px
+  padding-top: 10px;
 }
 .NavLink {
   color: white;
@@ -55,31 +65,27 @@ label {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center
-  
+  align-items: center;
 }
 
 form {
-
-   display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 #logInContainer {
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 75px;
   min-height: 100vh;
-  min-width: 100vw
-  }
+  min-width: 100vw;
+}
 
 #logInContainer2 {
-
   display: grid;
   justify-items: center;
   align-items: center;
@@ -87,47 +93,36 @@ form {
   grid-template-rows: 1fr;
   margin-top: 75px;
   min-height: 100vh;
-  min-width: 100vw
-  }
+  min-width: 100vw;
+}
 
-
- #balanceDiv {
-  
+#balanceDiv {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
 
- }
-
- #historyTable {
-  
+#historyTable {
   max-height: 75vh !important;
   overflow-y: scroll !important;
-
-
- }
+}
 #navGrid {
-
   display: grid;
-  grid-template-columns: 3fr 1fr 1fr; 
+  grid-template-columns: 3fr 1fr 1fr;
   grid-template-rows: 75px;
   width: 80%;
   height: 100%;
   align-items: center;
-
 }
 
 #mainTitle {
-
-
 }
 
-
-#logoutButton, #logoutButton > span {
+#logoutButton,
+#logoutButton > span {
   color: white !important;
 }
-
 
 .fade-enter {
   z-index: 1;
@@ -153,16 +148,10 @@ form {
   transition: opacity 100ms ease-in;
 }
 
-
 @media (max-width: 1000px) {
-
-
   #logInContainer2 {
-
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
   }
-
 }

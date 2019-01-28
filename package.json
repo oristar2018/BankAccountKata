@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon index.js",
     "test": "npx jest indexBackend.test.js && npx cucumber-js",
-    "bankInstall": "cd client && npm install && npm run build && cd .. && npm install && docker-compose up"
+    "bankInstall": "cd client && npm install && npm run build && cd .. && docker-compose build && docker-compose up"
   },
   "author": "bhd",
   "license": "ISC",

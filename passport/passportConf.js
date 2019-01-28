@@ -19,8 +19,8 @@ passport.use(
 	new LocalStrategy({}, async function(username, password, done) {
 		try {
 			let userId = parseInt(username);
-			const user = await Account.findOne({ "userId": userId });
-			console.log('signInPassport', user, username, password)
+			const user = await Account.findOne({ userId: userId });
+			console.log("signInPassport", user, username, password);
 			if (!user) {
 				return done(null, false);
 			}
@@ -28,7 +28,7 @@ passport.use(
 			if (!isMatch) {
 				return done(null, false);
 			}
-			
+
 			done(null, user);
 		} catch (error) {
 			console.log(error);

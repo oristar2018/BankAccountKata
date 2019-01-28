@@ -7,9 +7,9 @@ services:
     ports: 
       - '8887:8887'
     links:
-      - mongo4
-  mongo4:
-    container_name: mongo4
+      - mongo
+  mongo:
+    container_name: mongo
     image: mongo
     ports:
       - '127.0.0.1:27018:27017'

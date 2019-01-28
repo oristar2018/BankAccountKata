@@ -24,72 +24,53 @@ class App extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleClose = this.handleClose.bind(this);
     this.handleLogIn = this.handleLogIn.bind(this);
-    this.logOut = this.logOut.bind(this)
+    this.logOut = this.logOut.bind(this);
   }
-
 
   componentDidMount() {
-
-      fetch("/users/signin", {
+    fetch("/users/signin", {
       method: "GET",
       mode: "cors",
       credentials: "include"
       //body: { username: this.props.username }
-    }).then(res => {return res.json()}).then(res => {
-
-     
-      
-      if (res !== "no") {
-
-        let data = true;
-        let accountData = res.userObject;
-       // console.log(accountData)
-        this.props.dispatch({type: LOGGED, data});
-        this.props.dispatch({type: ACCOUNT, accountData});
-        console.log(this.props)
-
-      }
-
-      else { 
-        let data = false;
-        let accountData = null;
-        this.props.dispatch({type: LOGGED, data});
-        this.props.dispatch({type: ACCOUNT, accountData})
-
-      }
-
-
-
-    });
-
-  
-
-    
-
+    })
+      .then(res => {
+        return res.json();
+      })
+      .then(res => {
+        if (res !== "no") {
+          let data = true;
+          let accountData = res.userObject;
+          // console.log(accountData)
+          this.props.dispatch({ type: LOGGED, data });
+          this.props.dispatch({ type: ACCOUNT, accountData });
+          console.log(this.props);
+        } else {
+          let data = false;
+          let accountData = null;
+          this.props.dispatch({ type: LOGGED, data });
+          this.props.dispatch({ type: ACCOUNT, accountData });
+        }
+      });
   }
 
-
-  componentDidUpdate() {
-    
-  }
+  componentDidUpdate() {}
 
   logOut(e) {
-
-    fetch('/users/logout', {
+    fetch("/users/logout", {
       method: "GET",
       mode: "cors",
       credentials: "include"
       //body: { username: this.props.username }
-    }).then(res => {return res.json()}).then(res => {
-
-      if (res === "logged out") {
-        window.location.reload();
-
-      }
-
-
     })
-
+      .then(res => {
+        return res.json();
+      })
+      .then(res => {
+        if (res === "logged out") {
+          window.location.reload();
+        }
+      });
   }
 
   handleClick(event) {
@@ -97,21 +78,16 @@ class App extends Component {
   }
 
   handleLogIn(e) {
-
     var logInUserId = document.getElementById("logInUserId");
-    var logInPassword = document.getElementById('logInPassword');
+    var logInPassword = document.getElementById("logInPassword");
 
-     if (logInUserId.value !== "" && logInPassword !== "") {
-        console.log('valid')
-      }
+    if (logInUserId.value !== "" && logInPassword !== "") {
+      console.log("valid");
+    }
   }
 
   handleClose(e) {
-    
-    
     this.setState({ anchorEl: null });
-
-  
   }
 
   render() {
@@ -129,66 +105,82 @@ class App extends Component {
                     home
                   </NavLink>
                   <div className="Navlink">
-                  {this.props.logged === false ? 
-                  <div><Button
-                    aria-owns={anchorEl ? "simple-menu" : undefined}
-                    aria-haspopup="true"
-                    onClick={this.handleClick}
-                    style={{ color: "white" }}
-                    id="Button1"
-                    className="Navlink"
-                  >
-                    log in
-                  </Button>
-                  <Menu
-                    id="simple-menu"
-                    anchorEl={anchorEl}
-                    open={Boolean(anchorEl)}
-                    onClose={this.handleClose}
-                  > 
-                  <form>
-                    <MenuItem id="french">
-                      <label className="createAccountLabels" htmlFor="username">
-            userID *
-          </label>
-          <Input className="logInput" type="number" name="username" id="logInUserId" required="true"/>
-                    </MenuItem>
-                    <MenuItem id="english">
-                     <label className="createAccountLabels" htmlFor="password">
-            password *
-          </label>
-          <Input
-            className="logInput"
-            type="password"
-            name="password"
-            id="logInPassword"
-            required="true"
-          />
-                    </MenuItem>
-                    <MenuItem>
-                    <Button
-            color="primary"
-            id="logInSubmit"
-            type="submit"
-            name="submit"
-            formAction="/users/signin"
-            formMethod="POST"
-            value="sign up"
-            
-          >
-            Proceed
-          </Button>
-          <Button
-            color="primary"
-            onClick={this.handleClose}
-          >
-            close
-          </Button>
-                    </MenuItem>
-                    </form>
-                  </Menu>
-                  </div>
-                : <Button id="logoutButton" onClick={this.logOut}>log out</Button>}
+                    {this.props.logged === false ? (
+                      <div>
+                        <Button
+                          aria-owns={anchorEl ? "simple-menu" : undefined}
+                          aria-haspopup="true"
+                          onClick={this.handleClick}
+                          style={{ color: "white" }}
+                          id="Button1"
+                          className="Navlink"
+                        >
+                          log in
+                        </Button>
+                        <Menu
+                          id="simple-menu"
+                          anchorEl={anchorEl}
+                          open={Boolean(anchorEl)}
+                          onClose={this.handleClose}
+                        >
+                          <form>
+                            <MenuItem id="french">
+                              <label
+                                className="createAccountLabels"
+                                htmlFor="username"
+                              >
+                                userID *
+                              </label>
+                              <Input
+                                className="logInput"
+                                type="number"
+                                name="username"
+                                id="logInUserId"
+                                required="true"
+                              />
+                            </MenuItem>
+                            <MenuItem id="english">
+                              <label
+                                className="createAccountLabels"
+                                htmlFor="password"
+                              >
+                                password *
+                              </label>
+                              <Input
+                                className="logInput"
+                                type="password"
+                                name="password"
+                                id="logInPassword"
+                                required="true"
+                              />
+                            </MenuItem>
+                            <MenuItem>
+                              <Button
+                                color="primary"
+                                id="logInSubmit"
+                                type="submit"
+                                name="submit"
+                                formAction="/users/signin"
+                                formMethod="POST"
+                                value="sign up"
+                              >
+                                Proceed
+                              </Button>
+                              <Button
+                                color="primary"
+                                onClick={this.handleClose}
+                              >
+                                close
+                              </Button>
+                            </MenuItem>
+                          </form>
+                        </Menu>
+                      </div>
+                    ) : (
+                      <Button id="logoutButton" onClick={this.logOut}>
+                        log out
+                      </Button>
+                    )}
                   </div>
                 </div>
               </AppBar>
