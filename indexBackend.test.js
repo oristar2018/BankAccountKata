@@ -1,27 +1,26 @@
 const createAccount = require("./createAccountClass");
 const modifyBalance = require("./modifyBalance");
 
+var test = new createAccount("Morgan")
+	.setFirstName("Freeman")
+	.setUserId(5678)
+	.setEmail("Morgan@morgan.com")
+	.setPassword(1234)
+	.setAdress("6 Morgan Road, Morgan Town")
+	.setBalance(0);
 
-it('shouldTestAccountCreation', () => {
+it("shouldTestAccountCreation", () => {
+	const mockObject = {
+		name: "Morgan",
+		firstName: "Freeman",
+		userId: 5678,
+		email: "Morgan@morgan.com",
+		password: 1234,
+		adress: "6 Morgan Road, Morgan Town",
+		balance: 0,
+		history: undefined
+	};
 
-
-const mockObject = {
-
-	name: "Morgan",
-	firstName: "Freeman",
-	email: "Morgan@morgan.com",
-	adress: "6 Morgan Road, Morgan Town",
-	balance: 0
-
-};
-
-
-expect("createMockAccount").toEqual(mockObject)
-
-
-
+	expect(test).toEqual(mockObject);
 });
-
-
-
 
