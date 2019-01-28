@@ -40,7 +40,7 @@ The unit tests will be written and conducted with Jest.
 
 They will test the classes we use to create account objects and modify the account's balance and history.
 
-The functional tests will be writtend with Cucumber-JS.
+The functional tests will be written with Cucumber-JS.
 
 They will simulate all of the application process (Account creation => log in => logout => account deletion and deposit / withdrawal) in real-time via endpoint testing and api calls for the front-end part.
 
