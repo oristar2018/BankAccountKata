@@ -12,7 +12,7 @@ module.exports = {
     } else {
       var defaultHistory = [[
         "deposit",
-        deposit,
+        500,
         Date().toString(),
         500
       ]];
