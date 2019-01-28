@@ -24,3 +24,22 @@ it("shouldTestAccountCreation", () => {
 	expect(test).toEqual(mockObject);
 });
 
+
+it('shouldTestDeposits', () => {
+
+	const fakeDeposit = 100;
+	const mockBalance = 0;
+
+	expect(fakeDeposit + mockBalance).toEqual("newBalance")
+
+});
+
+
+it('shouldTestWithdrawals', () => {
+
+	const fakeWithdrawal = 100;
+	const mockBalance = 200;
+
+	expect(mockBalance - fakeWithdrawal).toEqual("newBalance");
+
+});
