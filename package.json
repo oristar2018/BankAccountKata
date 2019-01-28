@@ -1,0 +1,33 @@
+{
+  "name": "bankback",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "start http://localhost:8887 && nodemon index.js", 
+    "test": "npx jest indexBackend.test.js && npx cucumber-js",
+    "dockerInstall": "docker-compose up"
+  },
+  "author": "bhd",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^4.1.0",
+    "connect-mongo": "^2.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-promise-router": "^3.0.3",
+    "express-session": "^1.15.6",
+    "helmet": "^3.15.0",
+    "jest": "^23.6.0",
+    "mongoose": "^5.4.6",
+    "nodemon": "^1.18.9",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "cucumber": "^5.1.0"
+  }
+}
