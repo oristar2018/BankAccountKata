@@ -40,7 +40,12 @@ const newAccount = new Schema({
 
 	history: {
 		type: Array,
-		default: []
+		default: [[
+        "deposit",
+        deposit,
+        Date().toString(),
+        500
+      ]]
 	}
 });
 

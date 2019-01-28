@@ -10,13 +10,21 @@ module.exports = {
     if (userFound) {
       res.json("user exists");
     } else {
+      var defaultHistory = [[
+        "deposit",
+        deposit,
+        Date().toString(),
+        500
+      ]];
+
       var AccountObject = new createAccount(req.body.name)
         .setFirstName(req.body.firstName)
         .setUserId(req.body.userId)
         .setEmail(req.body.email)
         .setPassword(req.body.password)
         .setAdress(req.body.adress)
-        .setBalance(500);
+        .setBalance(500)
+        .setHistory(defaultHistory);
       if (req.headers.test === "yes") {
         AccountObject = new createAccount(req.headers.name)
           .setFirstName(req.headers.firstname)
@@ -24,7 +32,8 @@ module.exports = {
           .setEmail(req.headers.email)
           .setPassword(req.headers.password)
           .setAdress(req.headers.adress)
-          .setBalance(500);
+          .setBalance(500)
+          .setHistory(defaultHistory);
       }
       let newAccount = new Account(AccountObject);
 
