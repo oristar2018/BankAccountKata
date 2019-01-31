@@ -1,6 +1,9 @@
 //builder pattern class
 
-export class createAccount {
+const createAccount = require('./createAccountTest');
+
+
+export createAccount; /*createAccount {
 
 	constructor(name) {
 
