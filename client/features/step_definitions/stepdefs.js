@@ -18,7 +18,7 @@ Given("a new account object", function() {
 When("I send the data", async function() {
   let accountObject = this.accountObject;
 
-  const createdAccount = await fetch("http://localhost:8887/users/signup", {
+  const createdAccount = await fetch("http://localhost:8889/users/signup", {
     method: "POST",
     mode: "cors",
     credentials: "include",
@@ -53,7 +53,7 @@ Given("a new account", function() {
 });
 
 When("I login", async function() {
-  const loggedin = await fetch("http://localhost:8887/users/signinTest", {
+  const loggedin = await fetch("http://localhost:8889/users/signinTest", {
     method: "POST",
     mode: "cors",
     credentials: "include",
@@ -74,7 +74,7 @@ When("I login", async function() {
       }
     })
     .then(
-      fetch("http://localhost:8887/users/logout", {
+      fetch("http://localhost:8889/users/logout", {
         method: "GET",
         mode: "cors",
         headers: { test: "yes" },
@@ -102,7 +102,7 @@ Given("an existing account", function() {
 });
 
 When("I send a delete command", async function() {
-  const accountDeleted = await fetch("http://localhost:8887/users/delete", {
+  const accountDeleted = await fetch("http://localhost:8889/users/delete", {
     method: "POST",
     mode: "cors",
     credentials: "include",

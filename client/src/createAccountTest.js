@@ -10,7 +10,7 @@ class createAccount {
 		this.email = undefined,
 		this.password = undefined,
 		this.adress = undefined,
-		this.balance = []
+		this.balance = undefined
 
 	};
 
