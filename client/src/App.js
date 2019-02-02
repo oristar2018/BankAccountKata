@@ -100,7 +100,7 @@ class App extends Component {
             <div id="main">
               <AppBar id="appBar" position="fixed">
                 <div id="navGrid">
-                  <h1 id="navTitle">Boilerplate</h1>
+                  <h1 id="navTitle">Scrooge McBank</h1>
                   <NavLink className="NavLink" to="/" exact strict>
                     home
                   </NavLink>

@@ -21,8 +21,8 @@ it("testsAccountInfo", async () => {
 	var res;
 	const mockAccountInfo = new Promise((resolve, reject) => {
 		const test = new createAccount("testName")
-			.setFirstName("testFirstName");
-			
+			.setFirstName("testFirstName")
+			.setBalance(0);
 
 		resolve(test);
 	});

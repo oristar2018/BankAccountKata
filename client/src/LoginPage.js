@@ -16,6 +16,7 @@ class AccountPage extends Component {
 		this.state = {
 			warning: false
 		};
+		this.onChange = this.onChange.bind(this);
 		this.delete = this.delete.bind(this);
 	}
 
@@ -60,9 +61,30 @@ class AccountPage extends Component {
 		}
 	}
 
-	
+	onChange(e) {
+		let currValue = parseInt(e.target.value);
+		if (currValue < 0) {
+			alert("value can't be negative");
+			e.target.value = 0;
+		}
+
+		if (
+			e.target.id === "withdrawal" &&
+			e.target.value > this.props.accountInfo.balance
+		) {
+			alert("value can't exceed balance");
+			e.target.value = 0;
+		}
+	}
 	render() {
-		
+		var operationsData = [["Operations", "Balance"]];
+
+		if (this.props.accountInfo !== null) {
+			this.props.accountInfo.history.reverse().map((x, index) => {
+				operationsData.push([index + 1, x[3]]);
+			});
+		}
+		console.log(operationsData);
 		if (this.props.logged === false) {
 			return (
 				<div id="logInContainer">
@@ -125,13 +147,128 @@ class AccountPage extends Component {
 		} else if (this.props.logged === true) {
 			return (
 				<div id="logInContainer2">
+					<div id="history">
+						<h2>Operations</h2>
+						<Chart
+							width={"580px"}
+							height={"400px"}
+							chartType="Line"
+							loader={<div>Loading Chart</div>}
+							/*data={[
+    [
+      'Deposit number',
+      'Deposits',
+      'Withdrawals',
+    ],
+    [1, 100, 20],
+    [2, 100, 290],
+    [3, 300, 280]
+    
+  ]}*/
+							data={operationsData}
+							options={{
+								chart: {
+									title: "Balance variance",
+									subtitle: "in dollars (USD)"
+								}
+							}}
+							rootProps={{ "data-testid": "3" }}
+						/>
+						<Table id="historyTable">
+							<TableHead>
+								<TableRow>
+									<TableCell>operation type</TableCell>
+									<TableCell align="right">amount</TableCell>
+									<TableCell align="right">date</TableCell>
+								</TableRow>
+							</TableHead>
+							<TableBody>
+								{this.props.accountInfo !== null
+									? this.props.accountInfo.history
+											.reverse()
+											.map(x => {
+												return (
+													<TableRow hover={true}>
+														<TableCell
+															component="th"
+															scope="row"
+														>
+															{x[0]}
+														</TableCell>
+														<TableCell align="right">
+															{x[1]}
+														</TableCell>
+														<TableCell align="right">
+															{x[2]}
+														</TableCell>
+													</TableRow>
+												);
+											})
+									: "no account history"}
+							</TableBody>
+						</Table>
+					</div>
 					<div id="balanceDiv">
 						<h2>
 							{this.props.accountInfo !== null
-								? "welcome " + this.props.accountInfo.name + " " + this.props.accountInfo.firstName
-								  
-								: "no user info"}
+								? "current balance:$" +
+								  this.props.accountInfo.balance
+								: "current balance is null"}
 						</h2>
+
+						<form>
+							<label
+								className="createAccountLabels"
+								htmlFor="deposit"
+							>
+								deposit
+							</label>
+							<Input
+								className="logInput"
+								onChange={this.onChange}
+								type="number"
+								min="1"
+								name="deposit"
+							/>
+							<Button
+								color="primary"
+								id="createAccountSubmit"
+								type="submit"
+								name="submit"
+								formAction="/users/balance"
+								formMethod="POST"
+								value="sign up"
+							>
+								Proceed
+							</Button>
+						</form>
+						<form>
+							<label
+								className="createAccountLabels"
+								htmlFor="withdraw"
+							>
+								withdraw
+							</label>
+							<Input
+								id="withdrawal"
+								className="logInput"
+								onChange={this.onChange}
+								type="number"
+								min="1"
+								name="withdraw"
+							/>
+							<Button
+								color="primary"
+								id="createAccountSubmit2"
+								type="submit"
+								name="submit"
+								formAction="/users/balance"
+								formMethod="POST"
+								value="sign up"
+							>
+								Proceed
+							</Button>
+						</form>
 						<Button onClick={this.delete}>delete account</Button>
 					</div>
 				</div>
